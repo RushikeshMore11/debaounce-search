@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./search.css";
+import debounceQuery from "../utils/debounce";
 
 const Search = () => {
   const [search, setSearch] = useState<string>("");
+  const [list, setList] = useState<string[]>([]);
 
   const getData = async () => {
-    const data = await fetch(
-      `https://api.frontendeval.com/fake/food/${search}`
-    );
+    const url = `https://api.frontendeval.com/fake/food/${search}`;
+
+    const data: string[] = (await debounceQuery(url)) as unknown as string[];
+    setList(data);
   };
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [search]);
 
   return (
     <div className="wrapper">
@@ -23,10 +26,17 @@ const Search = () => {
         }}
         type="text"
         placeholder="Search for a Food here"
+        className="input"
       />
-      <div className="list">
-        <span className="item">Amul</span>
-      </div>
+      {list && list.length > 0 && (
+        <div className="list">
+          {list.map((item, idx) => (
+            <span className="item" key={item + idx}>
+              {item}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

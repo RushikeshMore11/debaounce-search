@@ -1,3 +1,31 @@
-.wrapper{
-    text-align: center;
+.wrapper {
+  text-align: center;
+}
+
+.input {
+  width: 200px;
+  height: 50xp;
+  padding: 7px 15px;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input:focus {
+  box-shadow: 2px 2px 5px 0px;
+  border: 1px solid black;
+}
+
+.list {
+  width: 200px;
+  height: 150px;
+  overflow-y: auto;
+  margin: 10px auto;
+  background-color: rgba(170, 187, 204, 0.5);
+}
+
+.item {
+  display: block;
+  margin: 5px;
 }
