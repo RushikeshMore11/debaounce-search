@@ -7,10 +7,12 @@ const Search = () => {
   const [list, setList] = useState<string[]>([]);
 
   const getData = async () => {
-    const url = `https://api.frontendeval.com/fake/food/${search}`;
+    if (search) {
+      const url = `https://api.frontendeval.com/fake/food/${search}`;
 
-    const data: string[] = (await debounceQuery(url)) as unknown as string[];
-    setList(data);
+      const data: string[] = (await debounceQuery(url)) as unknown as string[];
+      setList(data);
+    }
   };
 
   useEffect(() => {

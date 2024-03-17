@@ -4,10 +4,10 @@ import Search from "./components/search/Search";
 
 function App() {
   return (
-    <div>
-      <h1 className="header">Debounce:Rushikesh More</h1>
+    <>
+      <h1 className="header">Debounced Search</h1>
       <Search />
-    </div>
+    </>
   );
 }
 

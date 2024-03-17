@@ -22,5 +22,5 @@ const debounce = (func: any, delay: number) => {
 };
 
 
-const debounceQuery = debounce(fetchData, 500);
+const debounceQuery = debounce(fetchData, 300);
 export default debounceQuery
